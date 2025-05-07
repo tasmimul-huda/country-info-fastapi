@@ -28,7 +28,7 @@ source venv/bin/activate
 # On Windows:
 .\venv\Scripts\activate
 
-
+```
 
 ## Project Structure
 codefusion_ai/
