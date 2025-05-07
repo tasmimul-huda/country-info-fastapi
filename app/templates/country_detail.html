@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h2>{{ country.name_common }}</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{ country.flag_url }}" alt="{{ country.name_common }}" class="img-fluid mb-3">
+                    </div>
+                    <div class="col-md-8">
+                        <h4>{{ country.name_official }}</h4>
+                        <p><strong>Region:</strong> {{ country.region }}</p>
+                        <p><strong>Capital:</strong> {{ country.capital or 'N/A' }}</p>
+                        <p><strong>Population:</strong> {{ "{:,}".format(country.population) }}</p>
+                        <p><strong>Timezone:</strong> {{ country.timezones[0] if country.timezones else 'N/A' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Languages</h4>
+            </div>
+            <div class="card-body">
+                <ul>
+                    {% for code, name in country.languages.items() %}
+                    <li>{{ name }} ({{ code }})</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h4>Same Region Countries</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for c in same_region %}
+                    <li class="list-group-item">
+                        <a href="/countries/{{ c.cca2 }}">{{ c.name_common }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}

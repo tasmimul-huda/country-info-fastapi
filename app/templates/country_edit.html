@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Edit {{ country.name_common }}</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="/countries/{{ country.cca2 }}/edit">
+                    <div class="mb-3">
+                        <label class="form-label">Common Name</label>
+                        <input type="text" class="form-control" name="name_common" value="{{ country.name_common }}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Official Name</label>
+                        <input type="text" class="form-control" name="name_official" value="{{ country.name_official }}"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Capital</label>
+                        <input type="text" class="form-control" name="capital" value="{{ country.capital or '' }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Population</label>
+                        <input type="number" class="form-control" name="population" value="{{ country.population }}">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="/countries/{{ country.cca2 }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

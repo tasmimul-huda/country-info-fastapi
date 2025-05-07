@@ -4,7 +4,7 @@ This project fetches country data from the REST Countries API and stores it in a
 
 ## Prerequisites
 
-- Python 3.9 or higher
+- Python 3.10 or higher
 - pip
 - virtualenv (recommended)
 
@@ -19,18 +19,20 @@ sudo apt update
 sudo apt install python3.9 python3.9-venv
 
 # Create virtual environment with Python 3.9
-python3.9 -m venv venv
+python3.10 -m venv env
 
 # Activate the virtual environment
 # On Linux/Mac:
 source venv/bin/activate
 
 # On Windows:
+virtualenv -p python3.10 env
 .\venv\Scripts\activate
 
 ```
 
 ## Project Structure
+```bash
 codefusion_ai/
 ├── app/
 │   ├── api/
@@ -69,9 +71,7 @@ codefusion_ai/
 ├── scripts/
 │   ├── fetch_and_store.py
 │   └── __init__.py
-├── requirements/
-│   ├── base.txt
-│   ├── dev.txt
-│   └── prod.txt
+├── requirements.txt
 ├── .env
 └── README.md
+```
