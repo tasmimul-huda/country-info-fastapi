@@ -84,7 +84,8 @@ async def country_detail(
     same_region = get_countries_by_region(db, region=country.region)
     return templates.TemplateResponse(
         "country_detail.html",
-        {"request": request, "country": country, "same_region": same_region}
+        {"request": request, "country": country, "same_region": same_region,
+         "current_user": user}
     )
 
 
@@ -93,7 +94,8 @@ async def country_detail(
 async def show_new_country_form(request: Request, user: str = Depends(get_current_user_session)):
     return templates.TemplateResponse(
         "country_new.html",
-        {"request": request}
+        {"request": request,
+         "current_user": user}
     )
 
 
@@ -128,7 +130,10 @@ async def edit_country_page(request: Request,
     country = get_country_by_cca2(db, cca2)
     if not country:
         raise HTTPException(status_code=404)
-    return templates.TemplateResponse("country_edit.html", {"request": request, "country": country})
+    return templates.TemplateResponse("country_edit.html",
+                                       {"request": request,
+                                        "country": country,
+                                        "current_user": user})
 
 @country_router.post("/countries/{cca2}/edit")
 async def update_country_web(

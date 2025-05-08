@@ -128,31 +128,34 @@ ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 ```
 ### 5. Fetch Country Data (One-Time Script)
-Initially, if database is not there, it will automatically create a database and ask for ```username```, ```email``` and ```password``` to ceate a demo user.   
-```python scripts/fetch_and_store.py```
+Initially, if database is not there, it will automatically create a database and ask for ```username```, ```email``` and ```password``` to ceate a demo user.  
+
+```
+python scripts/fetch_and_store.py
+```
 
 ### 5. Run the App
 ```
 uvicorn app.main:app --reload
 ```
 
-🌐 Accessing the App
-🔸 Web Interface (HTML Rendering)
-After starting the server, visit:
+### 🌐 Accessing the App  
+#### 🔸 Web Interface (HTML Rendering)  
+After starting the server, visit:  
 
 [http://127.0.0.1:8000/](http://127.0.0.1:8000/)  
 
 You'll be redirected to the login page. After signing in, you'll be able to view, search, filter, and manage countries via the UI.
 
-🔸 API Documentation (Swagger UI)
-FastAPI automatically provides documentation:
+#### 🔸 API Documentation (Swagger UI)  
+FastAPI automatically provides documentation:  
 
 [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 You can test all REST API endpoints (including country data and auth) via this interface.
 
 
-✅ Assignment Phases Covered
+### ✅ Assignment Phases Covered
 ✔️ Phase 1: Data fetching and storage from external API.
 
 ✔️ Phase 2: RESTful API development.
@@ -162,7 +165,7 @@ You can test all REST API endpoints (including country data and auth) via this i
 ✔️ Phase 4: Authentication and access control (login, signup, logout).
 
 
-✅ RESTful API vs HTML Rendering Justification
+### ✅ RESTful API vs HTML Rendering Justification
 While pure REST APIs return only JSON and are suitable for headless clients (mobile/web apps), many practical applications require a web interface for admin panels or user dashboards. Our project supports:
 
 API consumption: for integration or automation
@@ -173,7 +176,7 @@ This balanced architecture provides flexibility, clarity, and real-world utility
 
 ## 📁 Project Structure
 ```bash
-codefusion_ai/
+country-info-fastapi/
 ├── app/
 │   ├── api/                        # API routes (REST)
 │   │   ├── countries.py
@@ -221,5 +224,5 @@ codefusion_ai/
 
 
 
-🙋 Author
-[S.M Tasmimul HUda]
+🙋 Author  
+[tasmimul-huda](https://github.com/tasmimul-huda)
