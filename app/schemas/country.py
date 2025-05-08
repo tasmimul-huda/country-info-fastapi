@@ -51,25 +51,3 @@ class CountryUpdate(BaseModel):
     timezones: Optional[List[str]] = None
     languages: Optional[dict] = None
 
-
-# from pydantic import BaseModel
-# from typing import List, Optional, Dict
-
-# class CountryBase(BaseModel):
-#     name: str
-#     cca2: str
-#     capital: Optional[str]
-#     population: int
-#     region: str
-#     timezones: List[str]
-#     flag: str
-#     languages: Dict[str, str]
-
-# class CountryCreate(CountryBase):
-#     pass
-
-# class Country(CountryBase):
-#     id: int
-
-#     class Config:
-#         orm_mode = True
